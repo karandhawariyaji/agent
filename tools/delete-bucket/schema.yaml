@@ -1,17 +1,17 @@
 openapi: 3.0.0
 info:
-  title: Create Vpc CFunction
+  title: Delete Cloud Storage Bucket
   version: 1.0.0
-  description: HTTP Cloud Function to create a VPC.
+  description: HTTP Cloud Function to delete a Cloud Storage bucket.
 
 servers:
-  - url: https://cdtfagent-255325954302.us-central1.run.app  # URL of the Cloud Run function
+  - url: https://delete-bucket-255325954302.us-central1.run.app  # URL of the Cloud Run function
 
 paths:
   /:
-    post:
-      summary: create a vpc
-      operationId: vpc
+    delete:
+      summary: Delete a Cloud Storage bucket
+      operationId: deleteBucket
       requestBody:
         required: true
         content:
@@ -19,37 +19,21 @@ paths:
             schema:
               type: object
               required:
-                - action
-                - project_id
-                - user_id
-                - resource_type
-                - vpc_name
+                - project
+                - bucket_name
               properties:
-                action:
-                  type: string
-                  description: Action.
-                  example: create
-                project_id:
+                project:
                   type: string
                   description: Google Cloud project ID.
                   example: my-gcp-project
-                user_id:
+                bucket_name:
                   type: string
-                  description: User Id.
-                  example: xyz
-                resource_type:
-                  type: string
-                  description: Resource Type.
-                  example: network
-                vpc_name:
-                  type: string
-                  description: VPC Name.
-                  example: vpc-name
-                
-                
+                  description: Name of the Cloud Storage bucket to delete.
+                  example: bucket08881
+
       responses:
         '200':
-          description: Successful request to create the vpc.
+          description: Cloud Storage bucket deleted successfully.
           content:
             application/json:
               schema:
@@ -57,12 +41,8 @@ paths:
                 properties:
                   message:
                     type: string
-                    description: Confirmation message that the creation request was sent.
-                    example: "Creation request sent for vpc"
-                  operation:
-                    type: string
-                    description: Name of the vpc operation.
-                    example: "operation-1678886400000-6000000000000"
+                    description: Confirmation message.
+                    example: "Bucket 'bucket08881' deleted successfully in project 'my-gcp-project'."
         '400':
           description: Bad Request - Missing or invalid input.
           content:
@@ -73,6 +53,18 @@ paths:
                   error:
                     type: string
                     description: Error message indicating the reason for the failure.
+                    example: "Missing required fields: project, bucket_name"
+        '404':
+          description: Not Found - Bucket does not exist.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    description: Error message indicating that the bucket does not exist.
+                    example: "Bucket 'bucket08881' not found."
         '500':
           description: Internal Server Error.
           content:

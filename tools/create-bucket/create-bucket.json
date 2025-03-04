@@ -1,0 +1,9 @@
+{
+  "name": "07389392-e18e-45d3-8f0a-b2c06e3403b5",
+  "displayName": "create-bucket",
+  "description": "Create Cloud storage",
+  "openApiSpec": {
+    "ignoreUnknownFields": true
+  },
+  "toolType": "CUSTOMIZED_TOOL"
+}

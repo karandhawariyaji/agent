@@ -1,0 +1,89 @@
+openapi: 3.0.0
+info:
+  title: Create Cloud Storage Bucket
+  version: 1.0.0
+  description: HTTP Cloud Function to create a Cloud Storage Bucket.
+
+servers:
+  - url: https://create-bucket-255325954302.us-central1.run.app  # URL of the Cloud Run function
+
+paths:
+  /:
+    post:
+      summary: Create a Cloud Storage bucket
+      operationId: createBucket
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - project
+                - bucket_name
+              properties:
+                project:
+                  type: string
+                  description: Google Cloud project ID.
+                  example: my-gcp-project
+                bucket_name:
+                  type: string
+                  description: Name of the Cloud Storage bucket.
+                  example: bucket08881
+                storage_class:
+                  type: string
+                  description: Storage class for the bucket (e.g., STANDARD, NEARLINE, COLDLINE, ARCHIVE).
+                  example: STANDARD
+                location:
+                  type: string
+                  description: Location of the Cloud Storage bucket.
+                  example: US
+
+      responses:
+        '201':
+          description: Cloud Storage bucket created successfully.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    description: Confirmation message.
+                    example: "Cloud Storage bucket 'bucket08881' created successfully in 'my-gcp-project'."
+        '400':
+          description: Bad Request - Missing or invalid input.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    description: Error message indicating the reason for the failure.
+                    example: "Missing required fields: project, bucket_name"
+        '409':
+          description: Conflict - Bucket already exists.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    description: Error message indicating that the bucket already exists.
+                    example: "Bucket 'bucket08881' already exists."
+        '500':
+          description: Internal Server Error.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    description: Error message indicating the reason for the failure.
+                    example: "An unexpected error occurred."
+
+components:
+  schemas: {}

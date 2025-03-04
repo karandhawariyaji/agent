@@ -1,0 +1,9 @@
+{
+  "name": "df311a6a-d0d0-425e-be3d-c43411375038",
+  "displayName": "vpc-create-github",
+  "description": "This is for triggering Cloud function which will trigger github workflow",
+  "openApiSpec": {
+    "ignoreUnknownFields": true
+  },
+  "toolType": "CUSTOMIZED_TOOL"
+}

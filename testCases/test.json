@@ -1,0 +1,195 @@
+{
+  "name": "8c02d6e4-f7d1-4a52-9d93-12a73b795cbd",
+  "displayName": "test",
+  "testCaseConversationTurns": [ {
+    "userInput": {
+      "input": {
+        "text": {
+          "text": "hi"
+        }
+      }
+    },
+    "virtualAgentOutput": {
+      "textResponses": [ {
+        "text": [ "Hi there! How can I help you today?" ]
+      } ]
+    }
+  }, {
+    "userInput": {
+      "input": {
+        "text": {
+          "text": "stop vm"
+        }
+      }
+    },
+    "virtualAgentOutput": {
+      "textResponses": [ {
+        "text": [ "Sure, I can help you stop a VM instance. Could you please tell me the project name, VM instance name, and zone?" ]
+      } ]
+    }
+  }, {
+    "userInput": {
+      "input": {
+        "text": {
+          "text": "Project ID: projectproject-443718 Zone: us-central1-c Instance Name: agentic"
+        }
+      }
+    },
+    "virtualAgentOutput": {
+      "textResponses": [ {
+        "text": [ "Great! Let me confirm: Project ID: projectproject-443718, Zone: us-central1-c, Instance Name: agentic. Is that correct?" ]
+      } ]
+    }
+  }, {
+    "userInput": {
+      "input": {
+        "text": {
+          "text": "yes"
+        }
+      }
+    },
+    "virtualAgentOutput": {
+      "textResponses": [ {
+        "text": [ "Sorry something went wrong, can you repeat?" ]
+      } ]
+    },
+    "expectations": {
+      "expectedActions": [ {
+        "toolUse": {
+          "tool": "projects/projectproject-443718/locations/us-central1/agents/6cd17c0e-329c-40da-a7e5-1b7cce76cb89/tools/3ce3198f-fc09-47d0-87c6-da9f807e63d0",
+          "action": "POST/stop_vm",
+          "inputActionParameters": {
+            "requestBody": {
+              "instance_name": "",
+              "project": "",
+              "zone": ""
+            }
+          },
+          "outputActionParameters": {
+            "200": {
+              "message": "",
+              "operation": ""
+            }
+          }
+        }
+      } ]
+    }
+  }, {
+    "userInput": {
+      "input": {
+        "text": {
+          "text": "stop vm"
+        }
+      }
+    },
+    "virtualAgentOutput": {
+      "textResponses": [ {
+        "text": [ "Sure, I can help you stop a VM instance. Could you please tell me the project name, VM instance name, and zone?" ]
+      } ]
+    }
+  }, {
+    "userInput": {
+      "input": {
+        "text": {
+          "text": "Project ID: projectproject-443718 Zone: us-central1-c Instance Name: agentic"
+        }
+      }
+    },
+    "virtualAgentOutput": {
+      "textResponses": [ {
+        "text": [ "Great! Let me confirm: Project ID: projectproject-443718, Zone: us-central1-c, Instance Name: agentic. Is that correct?" ]
+      } ]
+    }
+  }, {
+    "userInput": {
+      "input": {
+        "text": {
+          "text": "yes"
+        }
+      }
+    },
+    "virtualAgentOutput": {
+      "textResponses": [ {
+        "text": [ "Sorry something went wrong, can you repeat?" ]
+      } ]
+    },
+    "expectations": {
+      "expectedActions": [ {
+        "toolUse": {
+          "tool": "projects/projectproject-443718/locations/us-central1/agents/6cd17c0e-329c-40da-a7e5-1b7cce76cb89/tools/3ce3198f-fc09-47d0-87c6-da9f807e63d0",
+          "action": "POST/stop_vm",
+          "inputActionParameters": {
+            "requestBody": {
+              "instance_name": "",
+              "project": "",
+              "zone": ""
+            }
+          },
+          "outputActionParameters": {
+            "200": {
+              "message": "",
+              "operation": ""
+            }
+          }
+        }
+      } ]
+    }
+  }, {
+    "userInput": {
+      "input": {
+        "text": {
+          "text": "hi"
+        }
+      }
+    },
+    "virtualAgentOutput": {
+      "textResponses": [ {
+        "text": [ "Hi there! How can I help you today?" ]
+      } ]
+    }
+  }, {
+    "userInput": {
+      "input": {
+        "text": {
+          "text": "vm stop"
+        }
+      }
+    },
+    "virtualAgentOutput": {
+      "textResponses": [ {
+        "text": [ "Sure, I can help you stop a VM instance. Could you please tell me the project name, VM instance name, and zone?" ]
+      } ]
+    }
+  }, {
+    "userInput": {
+      "input": {
+        "text": {
+          "text": "Project ID: projectproject-443718 Zone: us-central1-c Instance Name: agentic"
+        }
+      }
+    },
+    "virtualAgentOutput": {
+      "textResponses": [ {
+        "text": [ "Great! Let me confirm: Project ID: projectproject-443718, Zone: us-central1-c, Instance Name: agentic. Is that correct?" ]
+      } ]
+    }
+  }, {
+    "userInput": {
+      "input": {
+        "text": {
+          "text": "yes"
+        }
+      }
+    },
+    "virtualAgentOutput": {
+      "textResponses": [ {
+        "text": [ "Sorry something went wrong, can you repeat?" ]
+      } ]
+    }
+  } ],
+  "creationTime": {
+    "seconds": 1740769135,
+    "nanos": 875035000
+  },
+  "languageCode": "en"
+}
