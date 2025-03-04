@@ -1,0 +1,24 @@
+{
+  "name": "00000000-0000-0000-0000-000000000000",
+  "displayName": "Default Generative Playbook",
+  "goal": "for creation and deletion of vpc",
+  "tokenCount": 266,
+  "referencedTools": [ "vpc" ],
+  "instruction": {
+    "steps": [ {
+      "text": "Greet the user and ask how can i help you today ."
+    }, {
+      "text": "When the customer says \"create vpc\" or \"delete vpc\" then ask user for project id \"user id\", \"resource type\", \"vpc name\" and also consider value of action as if user wants to create this means action is create and if user wants to delete action is delete ok then reply user  \"I understand you want to \"create\" or \"delete\" a VPC in \"project\" , \"user id\", \"resource type\", \"vpc name\"  in Google Cloud. Do you want to proceed?\" using the \"respond\" action.",
+      "steps": [ {
+        "text": "If the customer confirms (e.g., says \"yes\"), notify them with: \"Okay, starting VPC \"creation\" or \"deletion\" now.\" using the \"notify\" action."
+      }, {
+        "text": "Use ${TOOL:vpc} to create the VPC."
+      }, {
+        "text": "After the VPC creation, thank the user with: \"Thank you for your business! Your VPC has been \"created\" or \"deleted\"  Goodbye!\" using the \"respond\" action."
+      } ]
+    } ]
+  },
+  "codeBlock": {
+  
+  }
+}

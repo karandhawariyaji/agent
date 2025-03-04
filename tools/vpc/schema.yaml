@@ -1,0 +1,89 @@
+openapi: 3.0.0
+info:
+  title: Create Vpc CFunction
+  version: 1.0.0
+  description: HTTP Cloud Function to create a VPC.
+
+servers:
+  - url: https://cdtfagent-255325954302.us-central1.run.app  # URL of the Cloud Run function
+
+paths:
+  /:
+    post:
+      summary: create a vpc
+      operationId: vpc
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - action
+                - project_id
+                - user_id
+                - resource_type
+                - vpc_name
+              properties:
+                action:
+                  type: string
+                  description: Action.
+                  example: create
+                project_id:
+                  type: string
+                  description: Google Cloud project ID.
+                  example: my-gcp-project
+                user_id:
+                  type: string
+                  description: User Id.
+                  example: xyz
+                resource_type:
+                  type: string
+                  description: Resource Type.
+                  example: network
+                vpc_name:
+                  type: string
+                  description: VPC Name.
+                  example: vpc-name
+                
+                
+      responses:
+        '200':
+          description: Successful request to create the vpc.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    description: Confirmation message that the creation request was sent.
+                    example: "Creation request sent for vpc"
+                  operation:
+                    type: string
+                    description: Name of the vpc operation.
+                    example: "operation-1678886400000-6000000000000"
+        '400':
+          description: Bad Request - Missing or invalid input.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    description: Error message indicating the reason for the failure.
+        '500':
+          description: Internal Server Error.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    description: Error message indicating the reason for the failure.
+                    example: "An unexpected error occurred."
+
+components:
+  schemas: {}
