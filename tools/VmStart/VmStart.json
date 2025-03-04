@@ -1,0 +1,9 @@
+{
+  "name": "999147ab-1015-43f2-ac71-cca28802f246",
+  "displayName": "VmStart",
+  "description": "Start my VM Instance.",
+  "openApiSpec": {
+    "ignoreUnknownFields": true
+  },
+  "toolType": "CUSTOMIZED_TOOL"
+}

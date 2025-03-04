@@ -1,0 +1,9 @@
+{
+  "name": "3ce3198f-fc09-47d0-87c6-da9f807e63d0",
+  "displayName": "stop_vm",
+  "description": "Stop my VM Instance.",
+  "openApiSpec": {
+    "ignoreUnknownFields": true
+  },
+  "toolType": "CUSTOMIZED_TOOL"
+}

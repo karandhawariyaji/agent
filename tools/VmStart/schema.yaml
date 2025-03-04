@@ -1,0 +1,78 @@
+openapi: 3.0.0
+info:
+  title: Start Google Compute Engine VM
+  version: 1.0.0
+  description: |
+    This API starts a Google Compute Engine Virtual Machine instance.
+
+servers:
+  - url: https://strt-vm-255325954302.us-central1.run.app
+
+paths:
+  /:
+    post:
+      summary: Start a VM instance
+      operationId: startVM
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - project
+                - zone
+                - instance_name
+              properties:
+                project:
+                  type: string
+                  description: The Google Cloud project ID.
+                  example: my-gcp-project
+                zone:
+                  type: string
+                  description: The zone where the VM instance is located.
+                  example: us-central1-a
+                instance_name:
+                  type: string
+                  description: The name of the VM instance to start.
+                  example: my-vm-instance
+      responses:
+        '200':
+          description: Successful operation.  Returns a message indicating the start request was sent, and the operation name.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    description: A message indicating the start request was sent.
+                    example: "Start request sent for VM 'my-vm-instance' in 'us-central1-a'"
+                  operation:
+                    type: string
+                    description: The name of the operation.
+                    example: "operation-1678886400000-63a6e760c27e3-09876543"
+        '400':
+          description: Bad Request. Missing required parameters or invalid JSON.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    description: Error message.
+        '500':
+          description: Internal Server Error. An unexpected error occurred.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    description: Error message.
+                    example: "An unexpected error occurred."
+
+components:
+  schemas: {}

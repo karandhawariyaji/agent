@@ -1,8 +1,0 @@
-{
-  "name": "ef89062b-0df3-4172-9e68-b050186894f9",
-  "displayName": "vpc",
-  "openApiSpec": {
-    "ignoreUnknownFields": true
-  },
-  "toolType": "CUSTOMIZED_TOOL"
-}

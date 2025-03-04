@@ -1,0 +1,9 @@
+{
+  "name": "ed316c18-2949-4105-93d1-690e36512158",
+  "displayName": "delete-bucket",
+  "description": "Delete requested Cloud Storage",
+  "openApiSpec": {
+    "ignoreUnknownFields": true
+  },
+  "toolType": "CUSTOMIZED_TOOL"
+}

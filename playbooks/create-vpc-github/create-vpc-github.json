@@ -1,0 +1,24 @@
+{
+  "name": "db75248e-325a-4c21-9e6b-056944667d7d",
+  "displayName": "create-vpc-github",
+  "goal": "for creation od cloud vpc with given projectid",
+  "tokenCount": 205,
+  "referencedTools": [ "vpc-create-github" ],
+  "instruction": {
+    "steps": [ {
+      "text": "Greet the user and ask how can i help you today ."
+    }, {
+      "text": "When the customer says \"create vpc\" then ask user for project id then reply user  \"I understand you want to create a VPC in \"project\" with default value in Google Cloud. Do you want to proceed?\" using the \"respond\" action.",
+      "steps": [ {
+        "text": "If the customer confirms (e.g., says \"yes\"), notify them with: \"Okay, starting VPC creation now.\" using the \"notify\" action."
+      }, {
+        "text": "Use ${TOOL:vpc-create-github} to create the VPC."
+      }, {
+        "text": "After the VPC creation, thank the user with: \"Thank you for your business! Your VPC has been created under this project id. Ask Anyother help that I can do? If no say thank you!"
+      } ]
+    } ]
+  },
+  "codeBlock": {
+  
+  }
+}

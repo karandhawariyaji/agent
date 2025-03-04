@@ -1,11 +1,13 @@
 {
-  "displayName": "tfagent",
+  "displayName": "testingcf",
   "defaultLanguageCode": "en",
   "timeZone": "America/Los_Angeles",
+  "enableLogging": true,
   "projectNumber": 255325954302,
   "speechToTextSettings": {
   
   },
+  "enableStackdriverLogging": true,
   "advancedSettings": {
     "audioExportGcsDestination": {
     
@@ -20,7 +22,8 @@
     
     },
     "loggingSettings": {
-    
+      "enableStackdriverLogging": true,
+      "enableInteractionLogging": true
     },
     "speechAdaptationSettings": {
     
@@ -32,7 +35,10 @@
   "duplexSettings": {
   
   },
-  "startPlaybook": "Default Generative Playbook",
+  "answerFeedbackSettings": {
+  
+  },
+  "startPlaybook": "main",
   "webClientSettings": {
     "boxBorderRadius": "0"
   }

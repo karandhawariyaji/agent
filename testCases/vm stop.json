@@ -1,0 +1,113 @@
+{
+  "name": "d77f8588-82a5-46c2-b2b4-c92d1a6032bf",
+  "displayName": "vm stop",
+  "testCaseConversationTurns": [ {
+    "userInput": {
+      "input": {
+        "text": {
+          "text": "hi"
+        }
+      }
+    },
+    "virtualAgentOutput": {
+      "textResponses": [ {
+        "text": [ "Hi there! How can I help you today?" ]
+      } ]
+    }
+  }, {
+    "userInput": {
+      "input": {
+        "text": {
+          "text": "vm stop"
+        }
+      }
+    },
+    "virtualAgentOutput": {
+      "textResponses": [ {
+        "text": [ "I can help you with that. Could you please provide me with the project name, zone, and instance name of the VM you want to stop?" ]
+      } ]
+    }
+  }, {
+    "userInput": {
+      "input": {
+        "text": {
+          "text": "Project ID: projectproject-443718 Zone: us-central1-c Instance Name: agentic"
+        }
+      }
+    },
+    "virtualAgentOutput": {
+      "textResponses": [ {
+        "text": [ "Sorry something went wrong, can you repeat?" ]
+      } ]
+    }
+  }, {
+    "userInput": {
+      "input": {
+        "text": {
+          "text": "hi"
+        }
+      }
+    },
+    "virtualAgentOutput": {
+      "textResponses": [ {
+        "text": [ "Hi there! How can I help you today?" ]
+      } ]
+    }
+  }, {
+    "userInput": {
+      "input": {
+        "text": {
+          "text": "strt vm"
+        }
+      }
+    },
+    "virtualAgentOutput": {
+      "textResponses": [ {
+        "text": [ "I can help you with that. Could you please provide me with the project name, zone, and instance name of the VM you want to start?" ]
+      } ]
+    }
+  }, {
+    "userInput": {
+      "input": {
+        "text": {
+          "text": "{   \"project\":\"projectproject-443718\",   \"zone\":\"us-central1-c\",   \"instance_name\": \"agentic\" }"
+        }
+      }
+    },
+    "virtualAgentOutput": {
+      "textResponses": [ {
+        "text": [ "Sorry something went wrong, can you repeat?" ]
+      } ]
+    },
+    "expectations": {
+      "expectedActions": [ {
+        "toolUse": {
+          "tool": "projects/projectproject-443718/locations/us-central1/agents/6cd17c0e-329c-40da-a7e5-1b7cce76cb89/tools/3ce3198f-fc09-47d0-87c6-da9f807e63d0",
+          "action": "POST/stop_vm",
+          "inputActionParameters": {
+            "requestBody": {
+              "instance_name": "",
+              "project": "",
+              "zone": ""
+            }
+          },
+          "outputActionParameters": {
+            "200": {
+              "message": "",
+              "operation": ""
+            }
+          }
+        }
+      } ]
+    }
+  }, {
+    "virtualAgentOutput": {
+    
+    }
+  } ],
+  "creationTime": {
+    "seconds": 1740769247,
+    "nanos": 521637000
+  },
+  "languageCode": "en"
+}

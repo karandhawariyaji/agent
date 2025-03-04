@@ -3,7 +3,7 @@
   "displayName": "Default Start Flow",
   "description": "A start flow created along with the agent",
   "transitionRoutes": [ {
-    "intent": "Default Welcome Intent",
+    "intent": "Greeting",
     "triggerFulfillment": {
       "messages": [ {
         "text": {
@@ -12,7 +12,8 @@
         "languageCode": "en"
       } ]
     },
-    "name": "1be1a3ce-e758-4837-976b-b3927b3f663f"
+    "targetPage": "End Flow",
+    "name": "3f63297b-1423-431d-90ca-adae66200dfa"
   } ],
   "eventHandlers": [ {
     "event": "sys.no-match-default",
@@ -24,7 +25,7 @@
         "languageCode": "en"
       } ]
     },
-    "name": "f870d47f-f6fa-4aa6-9e88-91386c9c197a"
+    "name": "0840f114-3213-4c99-bd79-e16deab17d90"
   }, {
     "event": "sys.no-input-default",
     "triggerFulfillment": {
@@ -35,10 +36,16 @@
         "languageCode": "en"
       } ]
     },
-    "name": "af5fcacc-33ce-4357-9333-a69ab9cdc261"
+    "name": "fcaa357a-67fd-456f-a422-50c0681bd763"
   } ],
   "nluSettings": {
     "modelType": "MODEL_TYPE_ADVANCED",
     "classificationThreshold": 0.30000001
-  }
+  },
+  "nluSettingsList": [ {
+    "modelType": "MODEL_TYPE_ADVANCED",
+    "classificationThreshold": 0.30000001,
+    "customConfigKey": "4c0e8615-baf1-4e56-8c33-533777f0cf45",
+    "languageCode": "en"
+  } ]
 }

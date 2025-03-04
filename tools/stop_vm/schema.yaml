@@ -1,0 +1,77 @@
+openapi: 3.0.0
+info:
+  title: Stop VM Cloud Function
+  version: 1.0.0
+  description: HTTP Cloud Function to stop a Google Compute Engine VM instance.
+
+servers:
+  - url: https://stop-vm-255325954302.us-central1.run.app  # URL of the Cloud Run function
+
+paths:
+  /:
+    post:
+      summary: Stop a VM Instance
+      operationId: stopvm
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - project
+                - zone
+                - instance_name
+              properties:
+                project:
+                  type: string
+                  description: Google Cloud project ID.
+                  example: my-gcp-project
+                zone:
+                  type: string
+                  description: Google Cloud zone where the VM instance is located.
+                  example: us-central1-a
+                instance_name:
+                  type: string
+                  description: Name of the VM instance to stop.
+                  example: my-vm-instance
+      responses:
+        '200':
+          description: Successful request to stop the VM.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    description: Confirmation message that the start request was sent.
+                    example: "Start request sent for VM 'my-vm-instance' in 'us-central1-a'"
+                  operation:
+                    type: string
+                    description: Name of the Compute Engine operation.
+                    example: "operation-1678886400000-6000000000000"
+        '400':
+          description: Bad Request - Missing or invalid input.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    description: Error message indicating the reason for the failure.
+        '500':
+          description: Internal Server Error.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    description: Error message indicating the reason for the failure.
+                    example: "An unexpected error occurred."
+
+components:
+  schemas: {}
